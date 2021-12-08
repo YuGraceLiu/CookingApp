@@ -3,10 +3,9 @@ import './App.css';
 import MultipleSelect from './components/MultipleSelect.js';
 import MyButton from './components/MyButton.js';
 
-export default function App() {
+export const App = ({buttonName}) => {
   const ingredients=['Ice', 'Apple', 'Mango', 'Meat', 'Fish', 'Egg', 'Rice'];
-  const [cookState, setCookState] = React.useState('');
-  setCookState('Cook');
+  const [cookState, setCookState] = React.useState(buttonName);
   const onCook = (event, setCookState) => {
     let newCookState = 'Cook';
     if (cookState === 'Cook') {
@@ -28,7 +27,6 @@ export default function App() {
       newvalue
     );
   };
-
 
   return (
     <div className="App">
