@@ -6,7 +6,7 @@ import MyButton from './components/MyButton.js';
 export const App = ({buttonName}) => {
   const ingredients=['Ice', 'Apple', 'Mango', 'Meat', 'Fish', 'Egg', 'Rice'];
   const [cookState, setCookState] = React.useState(buttonName);
-  const onCook = (event, setCookState) => {
+  const onCook = () => {
     let newCookState = 'Cook';
     if (cookState === 'Cook') {
       newCookState = 'Come Back';
