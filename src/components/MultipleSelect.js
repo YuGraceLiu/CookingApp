@@ -18,7 +18,7 @@ const MenuProps = {
   },
 };
 
-let MultipleSelect = ({names, handleName}) => {
+let MultipleSelect = ({names, handleName, currentSelected}) => {
   return (
   <>
     <div>
@@ -31,10 +31,10 @@ let MultipleSelect = ({names, handleName}) => {
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
           multiple
-          value={names}
+          value={currentSelected}
           onChange={handleName}
           input={<OutlinedInput label="Tag" />}
-          renderValue={(selected) => selected.join(', ')}
+          renderValue={(currentSelected) => currentSelected.join(', ')}
           MenuProps={MenuProps}
         >
           {names.map((name) => (
