@@ -18,32 +18,31 @@ export const App = ({buttonName}) => {
     const {
       target: { value },
     } = event;
-    let newvalue = typeof value === 'string' ? value.split(',') : value;
-    if (newvalue.length > 4){
-      let [firstSel, secondSel, thirdSel, fourthSel, ...others]  =  newvalue;
-      newvalue = [firstSel, secondSel, thirdSel, fourthSel];
-    }
     setIngredients(
-      newvalue
+        typeof value === 'string' ? value.split(',') : value,
     );
+    if (ingredient.length > 4){
+      let [Sel1, Sel2, Sel3, Sel4, ...SelOther] = new Array(ingredient);
+      setIngredients(
+          [Sel1, Sel2, Sel3, Sel4],
+      );
+    }
   };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
+      <h1>
           Cooking Station
+      </h1>
+        <div>
+          Your Choice
         </div>
         <div>
-          Your Choice :
-        </div>
-        <div>
-          <MultipleSelect names={ingredients} handleName={handleSelect}/>
+          <MultipleSelect names={ingredients} handleName={handleSelect} currentSelected={ingredient}/>
         </div>
         <div>
           <MyButton cookState={cookState} handleChange={onCook}/>
         </div>
-      </header>
     </div>
   );
 }

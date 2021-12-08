@@ -34,12 +34,12 @@ let MultipleSelect = ({names, handleName, currentSelected}) => {
           value={currentSelected}
           onChange={handleName}
           input={<OutlinedInput label="Tag" />}
-          renderValue={(currentSelected) => currentSelected.join(', ')}
+          renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
         >
           {names.map((name) => (
             <MenuItem key={name} value={name}>
-              <Checkbox checked={names.indexOf(name) > -1} />
+              <Checkbox checked={currentSelected.indexOf(name) > -1} />
               <ListItemText primary={name} />
             </MenuItem>
           ))}
