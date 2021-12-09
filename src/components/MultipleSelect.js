@@ -34,6 +34,7 @@ let MultipleSelect = ({names, handleName, currentSelected}) => {
           value={currentSelected}
           onChange={handleName}
           input={<OutlinedInput label="Tag" />}
+          renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
         >
           {names.map((name) => (
