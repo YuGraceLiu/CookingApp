@@ -18,18 +18,20 @@ export const App = ({buttonName}) => {
     const {
       target: { value },
     } = event;
-    setIngredients(
-        typeof value === 'string' ? value.split(',') : value,
-    );
+    if (value.length < 4) {
+      setIngredients(
+          typeof value === 'string' ? value.split(',') : value,
+      );
+    }
     //console.log(value)
     //console.log('+++++++++++++++++++++')
-    if (value.length > 4){
-      let [Sel1, Sel2, Sel3, Sel4, ...SelOther] = value;
-      setIngredients(
-          [Sel1, Sel2, Sel3, Sel4],
-      );
-      //console.log(ingredient)
-    }
+    //if (value.length > 4){
+    //  let [Sel1, Sel2, Sel3, Sel4, ...SelOther] = value;
+    //  setIngredients(
+    //      [Sel1, Sel2, Sel3, Sel4],
+    //  );
+    //  //console.log(ingredient)
+    //}
   };
 
   return (
@@ -41,7 +43,7 @@ export const App = ({buttonName}) => {
           Your Choice
         </div>
         <div>
-          <MultipleSelect names={ingredients} handleName={handleSelect} currentSelected={ingredient}/>
+          <MultipleSelect names={ingredients} handleName={handleSelect} />
         </div>
         <div>
           <MyButton cookState={cookState} handleChange={onCook}/>

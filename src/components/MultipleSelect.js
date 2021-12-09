@@ -18,7 +18,7 @@ const MenuProps = {
   },
 };
 
-let MultipleSelect = ({names, handleName, currentSelected}) => {
+let MultipleSelect = ({names, handleName}) => {
   return (
   <>
     <div>
@@ -37,7 +37,7 @@ let MultipleSelect = ({names, handleName, currentSelected}) => {
           renderValue={(currentSelected) => currentSelected.join(', ')}
           MenuProps={MenuProps}
         >
-          {names.map((name) => (
+          {names.map((name, index) => (
             <MenuItem key={name} value={name}>
               <Checkbox checked={currentSelected.indexOf(name) > -1} />
               <ListItemText primary={name} />
@@ -46,7 +46,7 @@ let MultipleSelect = ({names, handleName, currentSelected}) => {
         </Select>
       </FormControl>
     </div>
-    </>
+  </>
   );
 }
 
