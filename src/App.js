@@ -14,20 +14,22 @@ export const App = ({buttonName}) => {
     setCookState(newCookState);
   };
   const [ingredient, setIngredients] = React.useState([]);
-  const handleSelect = (event, {ingredient}) => {
+  const handleSelect = (event) => {
     const {
       target: { value },
     } = event;
     setIngredients(
         typeof value === 'string' ? value.split(',') : value,
     );
-    console.log(value)
-    if (typeof value !== 'string' && value.length > 4){
-      let [Sel1, Sel2, Sel3, Sel4, ...SelOther] = new Array(ingredient);
+    console.log(ingredient)
+    console.log('+++++++++++++++++++++')
+    if (value.length > 4){
+      let [Sel1, Sel2, Sel3, Sel4, ...SelOther] = value;
       setIngredients(
           [Sel1, Sel2, Sel3, Sel4],
       );
     }
+    console.log(ingredient)
   };
 
   return (
