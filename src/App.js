@@ -21,8 +21,8 @@ export const App = ({buttonName}) => {
     setIngredients(
         typeof value === 'string' ? value.split(',') : value,
     );
-    console.log({ingredient})
-    if (typeof ingredient === 'string' && ingredient.length > 4){
+    console.log(value)
+    if (typeof value !== 'string' && value.length > 4){
       let [Sel1, Sel2, Sel3, Sel4, ...SelOther] = new Array(ingredient);
       setIngredients(
           [Sel1, Sel2, Sel3, Sel4],
